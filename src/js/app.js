@@ -1,18 +1,15 @@
 import $ from 'jquery'
 window.$ = $;
 import { isWebp } from './modules/isWebp.js';
-import { ibg } from './modules/ibg.js';
-import { header } from './modules/header.js';
-import { dropDown } from './modules/dropDown.js';
-import { catalogLinks } from './modules/catalogLinks.js';
+import * as functions from './modules/functions.js'
 
 
-// header();
-// catalogLinks();
-
-$(document).ready(function(){
-})
 isWebp();
-ibg();
-dropDown();
+functions.ibg();
+functions.dropDown();
+functions.burgerMenu();
+import "./modules/dynamic_adapt.js";
+
+
 import './modules/script.js';
+import "./modules/swiper.js";

@@ -9,9 +9,9 @@ export function isWebp() {
         
     testWebP(function (support) { 
         if (support == true) {
-            document.querySelector('body').classList.add('webp');
+            document.querySelector('html').classList.add('webp');
         }else{
-            document.querySelector('body').classList.add('no-webp');
+            document.querySelector('html').classList.add('no-webp');
         }
     });
 }

@@ -1,13 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-    @@include('html/head.html', {
+    @@include('html/_head.htm', {
         "title": "Main Page"
     })
 
 <body>
     <div class="wrapper">
-        @@include('html/header.html')
-        <main class="page">
+        @@include('html/_header.htm')
+        <main class="page page_home">
+            <section class="main-screen">
+                <div class="main-screen__container container">
+                    <div class="main-screen__body">
+                        <div class="swiper main-screen__slider slider-main">
+                            <div class="swiper-wrapper">
+                                <div class="slider-main__slide swiper-slide slide-main-block slide-main-block-first">
+                                    <div class="slide-main-block__content">
+                                        <h2 class="slide-main-block__title">Интернет магазин сертифицированных</h2>
+                                        <div class="slide-main-block__sub-title">златоустовских ножей</div>
+                                        <div class="slide-main-block__text">
+                                            Добро пожаловать на официальный сайт «ЗЛАТМАКС»! В нашем магазине 
+                                            представлен наиболее широкий выбор Златоустовских ножей от Златоустовских 
+                                            Оружейных Фабрик и компаний, мы являемся официальными поставщиками.
+                                        </div>
+                                        <a href="" class="slide-main-block__button button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="slider-main__slide swiper-slide slide-main-block">
+                                    <div class="slide-main-block__content">
+                                        <h2 class="slide-main-block__title">Лучший интернет-магазин ножей</h2>
+                                        <div class="slide-main-block__sub-title">в России и Белоруссии</div>
+                                        <div class="slide-main-block__text">
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt, quam veritatis 
+                                            fugiat culpa magniincidunt accusantium molestiae odio illo animi ratione non fuga 
+                                            nihil neque maiores eligendi? Labore, eligendi debitis.
+                                        </div>
+                                        <a href="" class="slide-main-block__button button">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="slider-main__slide swiper-slide slide-main-block">
+                                    <div class="slide-main-block__content">
+                                        <h2 class="slide-main-block__title">Lorem</h2>
+                                        <div class="slide-main-block__sub-title">Ispum</div>
+                                        <div class="slide-main-block__text">
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt, quam veritatis 
+                                            fugiat culpa magniincidunt accusantium molestiae odio illo animi ratione non fuga 
+                                            nihil neque maiores eligendi? Labore, eligendi debitis.
+                                        </div>
+                                        <a href="" class="slide-main-block__button button">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pagination">
+                                <div class="pagination-bullets"></div>
+                                <div class="pagination-fraction">
+                                    <span class="pagination-fraction__active"></span>
+                                    <span class="pagination-fraction__total"></span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="main-screen__media media-main-block">
+                            <div class="media-main-block__image ibg">
+                                <img src="@img/mainscreen/knifes-image.png" alt="knife-image">
+                            </div>
+                            <div class="media-main-block__tips">
+                                <div class="media-main-block__tip media-main-block__tip_1">+</div>
+                                <div class="media-main-block__tip media-main-block__tip_2">+</div>
+                                <div class="media-main-block__tip media-main-block__tip_3">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-screen__advantages advantages-main">
+                        <div class="advantages-main__item">
+                            <div class="advantages-main__icon">
+                                <img src="@img/mainscreen/garantee.svg" alt="garantee-icon">
+                            </div>
+                            <div class="advantages-main__text">
+                                Гарантия 100% возврата денежных средств
+                            </div>
+                        </div>
+                        <div class="advantages-main__item">
+                            <div class="advantages-main__icon">
+                                <img src="@img/mainscreen/truck.svg" alt="truck-icon">
+                            </div>
+                            <div class="advantages-main__text">
+                                Доставка по России, Казахстану и Белоруссии
+                            </div>
+                        </div>
+                        <div class="advantages-main__item">
+                            <div class="advantages-main__icon">
+                                <img src="@img/mainscreen/list.svg" alt="list-icon">
+                            </div>
+                            <div class="advantages-main__text">
+                                Возможность оформление заказа без регистрации.
+                            </div>
+                        </div>
+                        <div class="advantages-main__item">
+                            <div class="advantages-main__icon">
+                                <img src="@img/mainscreen/percentages.svg" alt="percentages-icon">
+                            </div>
+                            <div class="advantages-main__text">
+                                Скидки постоянным покупателям.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="categories">
+                <div class="categories__container container">
+                    <div class="categories__row">
+                        <a class="categories__item item-category categories__item">
+                            <div class="item-category__information">
+                                <h2 class="item-category__title">Каталог ножей</h2>
+                                <ul class="item-category__list">
+                                    <li class="item-category__item"><span>Разделочные</span></li>
+                                    <li class="item-category__item"><span>Туристические</span></li>
+                                    <li class="item-category__item"><span>Охотничьи</span></li>
+                                </ul>
+                            </div>
+                            <div class="item-category__image item-category__image_first">
+                                <img src="@img/categories/knife-1.png" alt="category-knife-1">
+                            </div>
+                        </a>
+                        <a class="categories__item item-category categories__item">
+                            <div class="item-category__information">
+                                <h2 class="item-category__title">Среднеклинковое оружие</h2>
+                                <ul class="item-category__list">
+                                    <li class="item-category__item"><span>Разделочные</span></li>
+                                    <li class="item-category__item"><span>Туристические</span></li>
+                                    <li class="item-category__item"><span>Охотничьи</span></li>
+                                </ul>
+                            </div>
+                            <div class="item-category__image item-category__image_second">
+                                <img src="@img/categories/knife-2.png" alt="category-knife-2">
+                            </div>
+                        </a>
+                        <a class="categories__item item-category categories__item">
+                            <div class="item-category__information">
+                                <h2 class="item-category__title">Длинноклинковое оружие</h2>
+                                <ul class="item-category__list">
+                                    <li class="item-category__item"><span>Разделочные</span></li>
+                                    <li class="item-category__item"><span>Туристические</span></li>
+                                    <li class="item-category__item"><span>Охотничьи</span></li>
+                                </ul>
+                            </div>
+                            <div class="item-category__image item-category__image_third">
+                                <img src="@img/categories/knife-3.png" alt="category-knife-3">
+                            </div>
+                        </a>
+                        <a class="categories__item item-category categories__item">
+                            <div class="item-category__information">
+                                <h2 class="item-category__title">Сувенирные изделия</h2>
+                                <ul class="item-category__list">
+                                    <li class="item-category__item"><span>Разделочные</span></li>
+                                    <li class="item-category__item"><span>Туристические</span></li>
+                                    <li class="item-category__item"><span>Охотничьи</span></li>
+                                </ul>
+                            </div>
+                            <div class="item-category__image item-category__image_fourth">
+                                <img src="@img/categories/knife-4.png" alt="category-knife-4">
+                            </div>
+                        </a>
+                        <a class="categories__item item-category categories__item">
+                            <div class="item-category__information">
+                                <h2 class="item-category__title">Сопутствующие товары</h2>
+                                <ul class="item-category__list">
+                                    <li class="item-category__item"><span>Разделочные</span></li>
+                                    <li class="item-category__item"><span>Туристические</span></li>
+                                    <li class="item-category__item"><span>Охотничьи</span></li>
+                                </ul>
+                            </div>
+                            <div class="item-category__image item-category__image_fifth">
+                                <img src="@img/categories/knife-5.png" alt="category-knife-5">
+                            </div>
+                        </a>
+                        <a class="categories__item item-category categories__item">
+                            <div class="item-category__information">
+                                <h2 class="item-category__title">Ножевая мастерская</h2>
+                                <ul class="item-category__list">
+                                    <li class="item-category__item"><span>Разделочные</span></li>
+                                    <li class="item-category__item"><span>Туристические</span></li>
+                                    <li class="item-category__item"><span>Охотничьи</span></li>
+                                </ul>
+                            </div>
+                            <div class="item-category__image item-category__image_sixth">
+                                <img src="@img/categories/knife-6.png" alt="category-knife-6">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="products products_bestsellers">
+                @@include('html/_products_slider.htm', {
+                    "title": "Хиты продаж",
+                    "more": "Перейти в каталог"
+                })
+            </section>
+
+            <section class="new-products">
+                <div class="new-products__container container">
+                    <div class="new-products__body">
+                        <div class="new-products__content">
+                            <h2 class="new-products__title">Новинки</h2>
+                            <div class="new-products__text">Добро пожаловать на официальный сайт «ЗЛАТМАКС»! 
+                                В нашем магазине представлен наиболее широкий выбор Златоустовских ножей от 
+                                Златоустовских Оружейных Фабрик и компаний, мы являемся официальными поставщиками.
+                            </div>
+                            <a href="" class="new-products__link _icon-arrow_sh_r">Больше новинок</a>
+                        </div>
+                        <div class="new-products__slider-body">
+                            @@include('html/_new_products_slider.htm')
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="products products_actions">
+                @@include('html/_products_slider.htm', {
+                    "title": "Акции",
+                    "more": "Все акции"
+                })
+            </section>
             
         </main>
     </div>

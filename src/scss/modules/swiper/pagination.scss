@@ -1,4 +1,4 @@
-@import '../swiper-vars.scss';
+@import './swiper-vars.scss';
 @at-root {
   :root {
     /*
@@ -17,7 +17,7 @@
   --swiper-pagination-bullet-inactive-color: #000;
   --swiper-pagination-bullet-inactive-opacity: 0.2;
   --swiper-pagination-bullet-opacity: 1;
-  --swiper-pagination-bullet-horizontal-gap: 4px;
+  --swiper-pagination-bullet-horizontal-gap: 8px;
   --swiper-pagination-bullet-vertical-gap: 6px;
   */
   }

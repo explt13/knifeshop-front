@@ -2,5 +2,32 @@
 @import 'icons';
 @import './util/mixins';
 @import 'variables';
+@import './util/mediaQueries';
 @import './util/reset';
+@import './modules/swiper';
 @import './modules/header';
+@import './modules/main';
+@import './modules/rating';
+
+html{
+    &.lock{
+        overflow: hidden;
+    }
+}
+
+.page {
+    // .page_home
+    &_home {
+    }
+}
+
+.container{
+    padding: 0 rem(15);
+    margin: 0 auto;
+    max-width: #{$maxWidthContainer}+'px';
+    width: 100%;
+    font-weight: 500;
+    font-size: rem(16);
+    color: #fff;
+    font-family: $font-family;
+}

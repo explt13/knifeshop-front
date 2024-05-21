@@ -29,7 +29,7 @@ export const path = {
     watch: {
         js: `${srcFolder}/js/**/*.js`,
         scss: `${srcFolder}/scss/**/*.scss`,
-        html: `${srcFolder}/**/*.html`,
+        html: `${srcFolder}/**/*.{html,htm}`,
         images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,ico,svg,webp}`,
         videos: `${srcFolder}/videos/*.mp4`,
         files: `${srcFolder}/files/**/*.*`,

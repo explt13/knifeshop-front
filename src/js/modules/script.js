@@ -23,12 +23,35 @@ function documentActions(e){
             if (activeTab && activeTab != targetElement){
                 activeTab.classList.remove('_active-link');
                 activeMenu.classList.remove('_active-sub-menu');
+                document.documentElement.classList.remove('sub-menu-open');
             }
             targetElement.classList.toggle('_active-link');
             subMenu.classList.toggle('_active-sub-menu');
+            document.documentElement.classList.toggle('sub-menu-open');
             
         } else {
             console.log("Oops, there is no such submenu :(");
         }
     }
+
+
+    if (targetElement.closest('.menu-top-header__link_catalog')){
+        e.preventDefault();
+        document.documentElement.classList.add("catalog-open");
+    }
+
+    if (targetElement.closest('.menu-catalog__back')){
+        e.preventDefault();
+        document.documentElement.classList.remove("catalog-open");
+        document.querySelector("._active-link") ? document.querySelector("._active-link").classList.remove("_active-link") : null;
+        document.querySelector("._active-sub-menu") ? document.querySelector("._active-sub-menu").classList.remove("_active-sub-menu") : null;
+    }
+
+    if (targetElement.closest('.sub-menu-catalog__back')){
+        e.preventDefault();
+        document.documentElement.classList.remove("sub-menu-open");
+        document.querySelector("._active-link") ? document.querySelector("._active-link").classList.remove("_active-link") : null;
+        document.querySelector("._active-sub-menu") ? document.querySelector("._active-sub-menu").classList.remove("_active-sub-menu") : null;
+    }
+    
 }
