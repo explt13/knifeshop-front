@@ -193,12 +193,19 @@
             <section class="products products_bestsellers">
                 @@include('html/_products_slider.htm', {
                     "title": "Хиты продаж",
-                    "more": "Перейти в каталог"
+                    "more": "Перейти в каталог",
+                    "class_name": "bestsellers" 
                 })
             </section>
 
             <section class="new-products">
                 <div class="new-products__container container">
+                    <div class="new-products__bg ibg">
+                        <img src="@img/new/new_bg.jpg" alt="bg-new-products">
+                    </div>
+                    <div class="new-products__decorbg ibg">
+                        <img src="@img/new/new_bg_small.jpg" alt="bg-new-products-small">
+                    </div>
                     <div class="new-products__body">
                         <div class="new-products__content">
                             <h2 class="new-products__title">Новинки</h2>
@@ -218,7 +225,8 @@
             <section class="products products_actions">
                 @@include('html/_products_slider.htm', {
                     "title": "Акции",
-                    "more": "Все акции"
+                    "more": "Все акции",
+                    "class_name": "actions" 
                 })
             </section>
             

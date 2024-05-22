@@ -24,7 +24,7 @@ const handleMainScreenSlider = () => {
         grabCursor: false,
         slideToClickedSlide: false, // click on slide to move on it
         loop: true,
-        autoHeight: true,
+        // autoHeight: true,
     
         pagination: {
             el: '.pagination-bullets',
@@ -96,7 +96,7 @@ const handleMainSwiper = () => {
 
 
 const handleProductSlider = () => {
-    let productsSlider;
+    let productsSlider = null;
     const enableSwiper = () => {
         productsSlider = new Swiper(".slider-products", {
             init: true,
@@ -105,11 +105,11 @@ const handleProductSlider = () => {
             slidesPerView: 1,
             slidesPerGroup: 1,
             initialSlide: 0,
-            spaceBetween: 0,
+            spaceBetween: 30,
             preventInteractionOnTransition: true,
             grabCursor: false,
             slideToClickedSlide: false, // click on slide to move on it
-            // loop: true,
+            loop: true,
             pagination: {
                 enabled: true,
                 el: '.pagination-bullets',
@@ -138,21 +138,22 @@ const handleProductSlider = () => {
             }
         })
     }
-    enableSwiper();
+    
 
     const MOBILE = 768 / 16
     const mq = window.matchMedia(`(min-width: ${MOBILE}rem)`);
     const watchMq = () => {
-        if (mq.matches){
-            if (!productsSlider){
+        if (mq.matches) {
+            if (!productsSlider) {
                 enableSwiper();
             }
         } else {
-            if (productsSlider){
-                productsSlider.destroy(true, true);
+            if (productsSlider) {
+                productsSlider.forEach(slider => {
+                    slider.destroy(true, true);
+                })
                 productsSlider = null;
             }
-            return;
         }
     }
     watchMq();
@@ -166,18 +167,21 @@ const handleNewProductSlider = () => {
         init: true,
             enabled: true,
             speed: 1000,
-            slidesPerView: 3,
+            slidesPerView: 1,
             slidesPerGroup: 1,
             initialSlide: 0,
-            spaceBetween: 0,
+            spaceBetween: 30,
             preventInteractionOnTransition: true,
             grabCursor: false,
             slideToClickedSlide: false, // click on slide to move on it
-            // loop: true,
+            loop: true,
             pagination: {
                 enabled: true,
                 el: '.pagination-bullets',
                 type: 'bullets',
+            },
+            grid: {
+                rows: 3,
             },
             autoplay: {
                 delay: 3000,
@@ -186,10 +190,23 @@ const handleNewProductSlider = () => {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: false,
             },
+            breakpoints: {
+                767: {
+                    grid: false,
+                    slidesPerView: 1,
+                },
+                992: {
+                    grid: false,
+                    slidesPerView: 2,
+                },
+                1324: {
+                    grid: false,
+                    slidesPerView: 3,
+                }
+            }
     })
 }
 handleNewProductSlider();
-
 
 // ------------------------------------ BASE ------------------------------------ //
 // init: true,
