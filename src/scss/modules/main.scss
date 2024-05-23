@@ -441,11 +441,6 @@
         
     }
     &_new{
-        @media (max-width: $phone){
-            // max-width: 300px;
-            // width: 100%;
-            // margin: 0 auto;
-        }
     }
 
     // .product__image-container
@@ -734,6 +729,12 @@
     display: flex;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
     color: #fefefe;
+    transition: box-shadow 0.3s ease-in-out;
+    @media (any-hover: hover){
+        &:hover{
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.35);
+        }
+    }
     // .card__image
     &__image {
         background-size: contain;
@@ -796,6 +797,12 @@
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
     display: flex;
     overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    @media (any-hover: hover){
+        &:hover{
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.40);
+        }
+    }
     
      // .card-recommend__title
     &__title {
