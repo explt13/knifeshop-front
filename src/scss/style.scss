@@ -8,6 +8,7 @@
 @import './modules/header';
 @import './modules/main';
 @import './modules/rating';
+@import './modules/footer';
 
 html{
     &.lock{
@@ -28,6 +29,5 @@ html{
     width: 100%;
     font-weight: 500;
     font-size: rem(16);
-    color: #fff;
     font-family: $font-family;
 }

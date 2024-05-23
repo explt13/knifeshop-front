@@ -111,7 +111,7 @@
                     <div class="categories__row">
                         <a class="categories__item item-category categories__item">
                             <div class="item-category__information">
-                                <h2 class="item-category__title">Каталог ножей</h2>
+                                <h2 class="item-category__title title-category">Каталог ножей</h2>
                                 <ul class="item-category__list">
                                     <li class="item-category__item"><span>Разделочные</span></li>
                                     <li class="item-category__item"><span>Туристические</span></li>
@@ -124,7 +124,7 @@
                         </a>
                         <a class="categories__item item-category categories__item">
                             <div class="item-category__information">
-                                <h2 class="item-category__title">Среднеклинковое оружие</h2>
+                                <h2 class="item-category__title title-category">Среднеклинковое оружие</h2>
                                 <ul class="item-category__list">
                                     <li class="item-category__item"><span>Разделочные</span></li>
                                     <li class="item-category__item"><span>Туристические</span></li>
@@ -137,7 +137,7 @@
                         </a>
                         <a class="categories__item item-category categories__item">
                             <div class="item-category__information">
-                                <h2 class="item-category__title">Длинноклинковое оружие</h2>
+                                <h2 class="item-category__title title-category">Длинноклинковое оружие</h2>
                                 <ul class="item-category__list">
                                     <li class="item-category__item"><span>Разделочные</span></li>
                                     <li class="item-category__item"><span>Туристические</span></li>
@@ -150,7 +150,7 @@
                         </a>
                         <a class="categories__item item-category categories__item">
                             <div class="item-category__information">
-                                <h2 class="item-category__title">Сувенирные изделия</h2>
+                                <h2 class="item-category__title title-category">Сувенирные изделия</h2>
                                 <ul class="item-category__list">
                                     <li class="item-category__item"><span>Разделочные</span></li>
                                     <li class="item-category__item"><span>Туристические</span></li>
@@ -163,7 +163,7 @@
                         </a>
                         <a class="categories__item item-category categories__item">
                             <div class="item-category__information">
-                                <h2 class="item-category__title">Сопутствующие товары</h2>
+                                <h2 class="item-category__title title-category">Сопутствующие товары</h2>
                                 <ul class="item-category__list">
                                     <li class="item-category__item"><span>Разделочные</span></li>
                                     <li class="item-category__item"><span>Туристические</span></li>
@@ -176,7 +176,7 @@
                         </a>
                         <a class="categories__item item-category categories__item">
                             <div class="item-category__information">
-                                <h2 class="item-category__title">Ножевая мастерская</h2>
+                                <h2 class="item-category__title title-category">Ножевая мастерская</h2>
                                 <ul class="item-category__list">
                                     <li class="item-category__item"><span>Разделочные</span></li>
                                     <li class="item-category__item"><span>Туристические</span></li>
@@ -194,10 +194,9 @@
                 @@include('html/_products_slider.htm', {
                     "title": "Хиты продаж",
                     "more": "Перейти в каталог",
-                    "class_name": "bestsellers" 
+                    "product": "knife"
                 })
             </section>
-
             <section class="new-products">
                 <div class="new-products__container container">
                     <div class="new-products__bg ibg">
@@ -221,16 +220,106 @@
                     </div>
                 </div>
             </section>
-
-            <section class="products products_actions">
+            <section class="products products_promotions">
                 @@include('html/_products_slider.htm', {
                     "title": "Акции",
                     "more": "Все акции",
-                    "class_name": "actions" 
+                    "product": "knife"
                 })
             </section>
-            
+            <section class="products products_promotions">
+                @@include('html/_products_slider.htm', {
+                    "title": "Акции",
+                    "more": "Все акции",
+                    "product": "knife"
+                })
+            </section>
+            <section class="articles">
+                <div class="articles__container container">
+                    <div class="articles__body">
+                        <div class="articles__top-row top-row-articles">
+                            <h2 class="top-row-articles__title">Наши статьи</h2>
+                        </div>
+                        <div class="articles__cards cards-articles">
+                            <article class="cards-articles__card card">
+                                <div class="card__image ibg">
+                                    <img src="@img/articles/article_1.jpg" alt="article-image">
+                                </div>
+                                <div class="card__body">
+                                    <h2 class="card__title">Все о ножах: как правильно выбрать</h2>
+                                    <div class="card__date _addit-info _addit-info_light">24.07.2019</div>
+                                </div>
+                            </article>
+                            <article class="cards-articles__card card">
+                                <div class="card__image ibg">
+                                    <img src="@img/articles/article_2.jpg" alt="article-image">
+                                </div>
+                                <div class="card__body">
+                                    <h2 class="card__title">Как правильно выбрать фонарь</h2>
+                                    <div class="card__date _addit-info _addit-info_light">24.07.2019</div>
+                                </div>
+                            </article>
+                            <article class="cards-articles__card card">
+                                <div class="card__image ibg">
+                                    <img src="@img/articles/article_3.jpg" alt="article-image">
+                                </div>
+                                <div class="card__body">
+                                    <h2 class="card__title">Кухонные ножи для хозяек</h2>
+                                    <div class="card__date _addit-info _addit-info_light">24.07.2019</div>
+                                </div>
+                            </article>
+                            <article class="cards-articles__card card">
+                                <div class="card__image ibg">
+                                    <img src="@img/articles/article_4.jpg" alt="article-image">
+                                </div>
+                                <div class="card__body">
+                                    <h2 class="card__title">Кухонные ножи для хозяек</h2>
+                                    <div class="card__date _addit-info _addit-info_light">24.07.2019</div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="recommend">
+                <div class="recommend__container container">
+                    <div class="recommend__body">
+                        <div class="reccomend__cards cards-recommend">
+                            <div class="cards-recommend__card card-recommend">
+                                <div class="card-recommend__body">
+                                    <a class="card-recommend__title title-category">Тактические фонари</a>
+                                    <div class="card-recommend__text">Lorem ipsum dolor sit amet, 
+                                        consectetur adipiscing elit.</div>
+                                    <a class="card-recommend__button button">Подробнее</a>
+                                </div>
+                                <div class="card-recommend__image card-recommend__image_first">
+                                    <img src="@img/recommend/01.jpg" alt="recommend-product-light-1">
+                                </div>
+                            </div>
+                            <div class="cards-recommend__card card-recommend">
+                                <div class="card-recommend__body">
+                                    <a class="card-recommend__title title-category">Тактические фонари</a>
+                                    <div class="card-recommend__text">Lorem ipsum dolor sit amet, 
+                                        consectetur adipiscing elit.</div>
+                                    <a class="card-recommend__button button">Подробнее</a>
+                                </div>
+                                <div class="card-recommend__image card-recommend__image_second">
+                                    <img src="@img/recommend/02.jpg" alt="recommend-product-light-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="products products_flashlight">
+                @@include('html/_products_slider.htm', {
+                    "title": "Фонари",
+                    "more": "Перейти в каталог",
+                    "product": "flashlight"
+                })
+            </section>
         </main>
+        @@include('html/_footer.htm')
     </div>
     <script src="js/app.min.js"></script>
 </body>

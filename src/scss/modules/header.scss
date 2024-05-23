@@ -501,7 +501,7 @@
     background-color: $mainBlackColor;
     &__container{
         @media (max-width: $smallPhone){
-            padding: rem(15);
+            padding: rem(15)!important;
         }
     }
 }
