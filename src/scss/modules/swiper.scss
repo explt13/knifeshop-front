@@ -1,6 +1,5 @@
 @import 'swiper/swiper';
 @import 'swiper/pagination';
-@import 'swiper/grid';
 
 
 .swiper{
@@ -130,17 +129,15 @@
             }
         }
     }
-    @media (max-width: $phone){
-        .swiper-wrapper{
-            margin: 0 0 rem(20) 0;
-            flex-direction: column;
-            height: 1680px;
-        }
-        &__slide{
-            height: calc((100% - 30px) / 3);
-            overflow: hidden;
-        }
-    }
+
+}
+
+.images-product__slider,
+.images-product__thumbs{
+    overflow: hidden;
+}
+.images-product__slider{
+    margin: 0 0 rem(16) 0;
 }
 
 

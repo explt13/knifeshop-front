@@ -1,21 +1,18 @@
 import Swiper from "swiper/bundle"; // 'swiper/bundle' -> import all methods;
 
 
-const mainScreenFractionActive = document.querySelector('.pagination-fraction__active');
-const mainScreenFractionTotal = document.querySelector('.pagination-fraction__total');
-const slideCount = document.querySelectorAll('.slide-main-block').length;
-const firstSlideMore = document.querySelector('.slide-main-block-first .slide-main-block__button');
+const mainSliders = document.querySelectorAll('.slider-main');
 
-mainScreenFractionActive.textContent = '01';
-mainScreenFractionTotal.textContent = `/${slideCount}`;
 
-const pagination = document.querySelector('.pagination');
 
-const handleMainScreenSlider = () => {
+const handleMainScreenSlider = (sliderFractionActive) => {
     const mainScreenSwiper = new Swiper('.slider-main', {
         // ------------------------------------ BASE ------------------------------------ //
         init: true,
         enabled: true,
+        watchOverflow: true,
+        observer: true,
+        observeParents: true,
         speed: 700,
         slidesPerView: 1,
         initialSlide: 0,
@@ -42,65 +39,113 @@ const handleMainScreenSlider = () => {
         on: {
             slideChange: function(){
                 if (this.realIndex + 1 < 10){
-                    mainScreenFractionActive.textContent = `0${this.realIndex + 1}`;
+                    sliderFractionActive.textContent = `0${this.realIndex + 1}`;
                     
                 } else {
-                    mainScreenFractionActive.textContent = this.realIndex + 1;
+                    sliderFractionActive.textContent = this.realIndex + 1;
                 }
             },
         },
     });
 }
 
-handleMainScreenSlider();
-
-const handleMainSwiper = () => {
-    const tabletMq = window.matchMedia('(max-width: 991px)');
-
-    const disableSlider = () => {
-        mainScreenSwiper.on('transitionEnd', () => {
-            mainScreenSwiper.slideToLoop(0, 10);
-            setTimeout(() => {
-                mainScreenSwiper.disable();
-            }, 50);
-        })
-        if (firstSlideMore){
-            firstSlideMore.style.display = 'none';
-        }
-        if (pagination) {
-            pagination.style.display = 'none';
-        }
-        mainScreenSwiper.update();
-
-    }
-
-    tabletMq.addEventListener('change', function(){
-        
-        if (tabletMq.matches){
-            disableSlider();
-        }
-        else{
-            mainScreenSwiper.enable();
-            pagination.style.display = 'flex';
-            firstSlideMore.style.display = 'inline-flex';
-            mainScreenSwiper.off('transitionEnd');
-            mainScreenSwiper.update();
-        }
+if (mainSliders.length > 0){
+    mainSliders.forEach(slider => {
+        const sliderFractionActive = slider.querySelector('.pagination-fraction__active')
+        const sliderFractionTotal = slider.querySelector('.pagination-fraction__total');
+        const slideCount = slider.querySelectorAll('.slide-main-block').length;
+        sliderFractionActive.textContent = '01';
+        sliderFractionTotal.textContent = `/${slideCount}`;
+        handleMainScreenSlider(sliderFractionActive);
     })
-    if (tabletMq.matches){
-        disableSlider();
-    }
 }
-// handleMainSwiper();
 
 
 
-const handleProductSlider = () => {
+
+
+
+const handleCatalogSlider = () => {
     let productsSlider = null;
     const enableSwiper = () => {
-        productsSlider = new Swiper(".slider-products", {
+        const sliders = document.querySelectorAll('.slider-products');
+        if (sliders.length > 0){
+            productsSlider = new Swiper(".slider-products", {
+                init: true,
+                enabled: true,
+                watchOverflow: true,
+                observer: true,
+                observeParents: true,
+                speed: 1000,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                initialSlide: 0,
+                spaceBetween: 30,
+                preventInteractionOnTransition: true,
+                grabCursor: false,
+                slideToClickedSlide: false, // click on slide to move on it
+                pagination: {
+                    enabled: true,
+                    el: '.pagination-bullets',
+                    type: 'bullets',
+                },
+                autoplay: {
+                    delay: 3000,
+                    stopOnLastSlide: false,
+                    waitForTransition: false,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: false,
+                },
+                lazyPreloadPrevNext: 0,
+                breakpoints: {
+                    767: {
+                        slidesPerView: 2,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                    },
+                    1101: {
+                        slidesPerView: 4,
+                    },
+                }
+            })
+        }
+    }
+    const MOBILE = 768 / 16
+    const mq = window.matchMedia(`(min-width: ${MOBILE}rem)`);
+    const watchMq = () => {
+        if (mq.matches) {
+            if (!productsSlider) {
+                enableSwiper();
+            }
+        } else {
+            if (productsSlider && productsSlider.length > 1) {
+                productsSlider.forEach(slider => {
+                    slider.destroy(true, true);
+                })
+                productsSlider = null;
+            } else if (productsSlider && productsSlider.length == 1){
+                productsSlider.destroy(true, true);
+                productsSlider = null;
+            }
+          
+        }
+    }
+    watchMq();
+    mq.addEventListener('change', watchMq);
+}
+handleCatalogSlider();
+
+
+const handleNewCatalogSlider = () => {
+    const sliders = document.querySelectorAll('.slider-new-products');
+    if (sliders.length > 0){
+        const newProductSlider = new Swiper('.slider-new-products', {
             init: true,
             enabled: true,
+            watchOverflow: true,
+            observer: true,
+            observeParents: true,
             speed: 1000,
             slidesPerView: 1,
             slidesPerGroup: 1,
@@ -122,91 +167,62 @@ const handleProductSlider = () => {
                 disableOnInteraction: false,
                 pauseOnMouseEnter: false,
             },
-            lazyPreloadPrevNext: 0,
             breakpoints: {
                 767: {
-                    slidesPerView: 2,
+                    slidesPerView: 1,
                 },
                 992: {
+                    slidesPerView: 2,
+                },
+                1324: {
                     slidesPerView: 3,
-                },
-                1101: {
-                    slidesPerView: 4,
-                },
-                
-                
+                }
             }
         })
     }
-    
+}
+handleNewCatalogSlider();
 
-    const MOBILE = 768 / 16
-    const mq = window.matchMedia(`(min-width: ${MOBILE}rem)`);
-    const watchMq = () => {
-        if (mq.matches) {
-            if (!productsSlider) {
-                enableSwiper();
+const handleProductSlider = () => {
+    const sliders = document.querySelectorAll('.thumbs-images');
+    if (sliders.length > 0){
+        const thumbsSwiper = new Swiper('.images-product__thumbs', {
+            init: true,
+            enabled: true,
+            watchOverflow: true,
+            observer: true,
+            observeParents: true,
+            speed: 1000,
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            initialSlide: 0,
+            spaceBetween: 16,
+            breakpoints: {
+                1120: {
+                    slidesPerView: 4,
+                }
             }
-        } else {
-            if (productsSlider) {
-                productsSlider.forEach(slider => {
-                    slider.destroy(true, true);
-                })
-                productsSlider = null;
+        });
+        new Swiper('.images-product__slider', {
+            init: true,
+            enabled: true,
+            speed: 1000,
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            initialSlide: 0,
+            spaceBetween: 30,
+            preventInteractionOnTransition: true,
+            watchOverflow: true,
+            observer: true,
+            observeParents: true,
+            thumbs: {
+                swiper:  thumbsSwiper
             }
-        }
+        });
     }
-    watchMq();
-    mq.addEventListener('change', watchMq);
 }
 handleProductSlider();
 
-
-const handleNewProductSlider = () => {
-    const slider = new Swiper('.slider-new-products', {
-        init: true,
-        enabled: true,
-        speed: 1000,
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        initialSlide: 0,
-        spaceBetween: 30,
-        preventInteractionOnTransition: true,
-        grabCursor: false,
-        slideToClickedSlide: false, // click on slide to move on it
-        loop: true,
-        pagination: {
-            enabled: true,
-            el: '.pagination-bullets',
-            type: 'bullets',
-        },
-        grid: {
-            rows: 3,
-        },
-        autoplay: {
-            delay: 3000,
-            stopOnLastSlide: false,
-            waitForTransition: false,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-        },
-        breakpoints: {
-            767: {
-                grid: false,
-                slidesPerView: 1,
-            },
-            992: {
-                grid: false,
-                slidesPerView: 2,
-            },
-            1324: {
-                grid: false,
-                slidesPerView: 3,
-            }
-        }
-    })
-}
-handleNewProductSlider();
 
 // ------------------------------------ BASE ------------------------------------ //
 // init: true,

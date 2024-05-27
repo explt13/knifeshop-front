@@ -4,6 +4,7 @@
     }
 }
 .top-row-footer {
+    background: url('@img/footer/footer_bg.jpg') top / cover no-repeat;
     position: relative;
     // .top-row-footer__bg
     &__bg {
@@ -44,6 +45,14 @@
         letter-spacing: 0.03em;
         color: #fff;
     }
+    @media (max-width: $medPhone){
+        &__title{
+            font-size: rem(24);
+        }
+        &__text {
+            font-size: rem(16);
+        }
+    }
 }
 
 
@@ -72,6 +81,9 @@
             padding: rem(30) 0;
             margin: 0 0 rem(35) 0;
         }
+        @media (max-width: $medPhone){
+            justify-content: center;
+        }
     }
 }
 .footer-body-row {
@@ -85,33 +97,73 @@
             padding-bottom: rem(30);
             margin: 0 0 rem(35) 0;
         }
-        
     }
     // .footer-body-row__column
     &__column {
     }
     @media (max-width: $medPhone){
         grid-template-columns: repeat(1, 1fr);
+        row-gap: 0;
         &_top{
             border-bottom: none;
+            &:not(:last-child){
+                margin: 0;
+                padding: 0;
+            }
+   
         }
     }
     
 }
 .column-item {
+    &_mailing{
+        @media (max-width: $medPhone){
+            .column-item__title:not(:last-child){
+                margin: 0 0 rem(15) 0;
+            }
+            margin-top: rem(30);
+        }
+    }
     // .column-item__title
     &__title {
         font-weight: 600;
         font-size: rem(18);
         color: #fff;
         text-transform: uppercase;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        &._active{
+            &::after{
+                transform: rotateZ(180deg);
+            }
+        }
+        &::after{
+            content: '\e900';
+            font-size: 12px;
+            transition: transform 0.3s ease-in-out;
+            @extend %ic;
+            @media (min-width: rem(601)){
+                display: none;
+            }
+        }
 
         &:not(:last-child){
             margin: 0 0 rem(30) 0;
         }
     }
+    &__title._not-spoller{
+        justify-content: flex-start;
+        &::after{
+            display: none;
+        }
+    }
     // .column-item__list
     &__list {
+        @media (max-width: $medPhone){
+            padding: 0 0 rem(30) 0;
+        }
     }
     // .column-item__list-item
     &__list-item {
@@ -135,9 +187,6 @@
     a[class*="column-item__link _icon-"]{
         gap: 16px;
         display: inline-flex;
-    }
-    @media (max-width: $medPhone){
-        text-align: center;
     }
 }
 .item-guarantee{
@@ -177,14 +226,16 @@
         &:not(:last-child){
             margin: 0 0 rem(25) 0;
         }
+        @media (max-width: $medPhone){
+            &:not(:last-child){
+                margin: 0 0 rem(10) 0;
+            }
+        }
     }
     // .form-mailing__input
     &__input {
         font-size: rem(16);
         flex: 1;
-        border-left: rem(1) solid white;
-        border-bottom: rem(1) solid white;
-        border-top: rem(1) solid white;
         border-radius: rem(3);
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
@@ -197,6 +248,8 @@
             transition: .1s ease-in-out opacity;
         }
         &:focus{
+            border: rem(1) solid white;
+            border-right: none;
             &::placeholder{
                 opacity: 0;
             }
@@ -236,9 +289,20 @@
         cursor: pointer;
         border-radius: rem(2);
         flex: 0 0 rem(16);
-        transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.1s ease-in-out;
+        position: relative;
+
         &:checked{
-            background-color: $mainOrangeColor;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                width: rem(10);
+                height: rem(10);
+                background-color: $mainOrangeColor;
+            }
         }
 
     }
@@ -268,6 +332,7 @@
     justify-content: space-between;
     font-weight: 500;
     font-size: rem(14);
+    gap: rem(20);
     line-height: 1.92857;
     color: rgba(255, 255, 255, 0.8);
     // .footer-body-footer__law
@@ -275,7 +340,17 @@
         max-width: rem(817);
         width: 100%;
     }
-    // .footer-body-footer__glyph
-    &__glyph {
+    // .footer-body-footer__company
+    &__company {
+        span{
+            white-space: nowrap;
+        }
+    }
+    @media (max-width: $medPhone){
+        flex-direction: column;
+        gap: rem(30);
+        &__company{
+            margin: 0 auto;
+        }
     }
 }

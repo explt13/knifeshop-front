@@ -55,3 +55,65 @@ function documentActions(e){
     }
     
 }
+
+
+const burgerMenu = () =>{
+    const TABLET = 991 / 16
+    const mql = matchMedia(`(max-width: ${TABLET}rem)`)
+    const button = document.querySelector('.icon-menu');
+
+    const menu = () => {
+        document.documentElement.classList.remove('menu-hidden');
+        document.querySelector('.icon-menu').classList.toggle('active');
+        if (document.documentElement.classList.contains('catalog-open')){
+            document.documentElement.classList.remove('catalog-open');
+        }
+        if (document.documentElement.classList.contains('sub-menu-open')){
+            document.documentElement.classList.remove('sub-menu-open');
+            document.querySelector('.menu-catalog__link').classList.remove('_active-link');
+            document.querySelector('.sub-menu-catalog__block').classList.remove("_active-sub-menu");
+            
+        }
+        document.documentElement.classList.toggle('menu-open');
+        document.documentElement.classList.toggle('lock');
+    }
+
+    const handleBM = () => {
+        document.documentElement.classList.add('menu-hidden');
+        button.addEventListener('click', menu);
+    }
+
+    if (mql.matches){
+        handleBM();
+    }
+    mql.addEventListener('change', function(){
+        if (mql.matches){
+            handleBM();
+        } else {
+            document.querySelector('.icon-menu').removeEventListener('click', menu);
+            document.querySelector('.icon-menu').classList.remove('active');
+            document.documentElement.classList.remove('menu-open');
+            document.documentElement.classList.remove('lock');
+            document.documentElement.classList.remove('catalog-open');
+            document.documentElement.classList.remove('sub-menu-open')
+            $('html').removeClass('menu-open lock catalog-open sub-menu-open');
+        }
+    })
+}
+burgerMenu();
+
+
+if (document.querySelector(".filter-catalog__title")){
+    document.querySelector(".filter-catalog__title").addEventListener('click', function(){
+        if (window.innerWidth < 992){
+            document.querySelector(".filter-catalog__items").classList.toggle('_active');
+        }
+    })
+}
+
+const moreNone = document.querySelectorAll('[data-none]');
+if (moreNone.length > 0){
+    moreNone.forEach(more => {
+        more.remove();
+    })
+}

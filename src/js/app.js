@@ -1,15 +1,12 @@
 import $ from 'jquery'
 window.$ = $;
 import { isWebp } from './modules/isWebp.js';
-import * as functions from './modules/functions.js'
-
 
 isWebp();
-functions.ibg();
-functions.dropDown();
-functions.burgerMenu();
-import "./modules/dynamic_adapt.js";
 
+import './modules/functions.js'
+import "./modules/dynamic_adapt.js";
+import "./modules/forms.js";
 
 import './modules/script.js';
-import "./modules/swiper.js";
+import "./modules/sliders.js";

@@ -55,8 +55,16 @@
 		#{$property}: calc(#{$minSize + px} + #{$addSize} * (((100vw - #{$minWidth + px})) / ((#{$maxWidthContainer - $minWidth}))));
 	}
 }
-@function rem($num){
-    @return #{calc($num / $rootFontSize)}rem;
+@function rem($pixels){
+    @return #{calc($pixels / $rootFontSize)}rem;
+}
+
+@function em($pixels, $context: $rootFontSize) {
+    @return #{calc($pixels / $context)}em;
+  }
+
+@function percent($value1, $value2) {
+    @return percentage($value1 / $value2);
 }
 
 

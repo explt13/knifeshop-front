@@ -305,11 +305,6 @@
         &:hover{
             color: $mainOrangeColor;
         }
-
-        @media (max-width: $tablet){
-            margin: 0;
-            font-size: rem(30);
-        }
     }
     // .information__shop
     &__shop {
@@ -337,6 +332,9 @@
 
     @media (max-width: $tablet){
         display: none;
+        &__fav{
+            color: white;
+        }
     }
 }
 
@@ -349,9 +347,9 @@
         font-weight: 600;
         font-size: rem(18);
         color: #000;
+        column-gap: rem(10);
         position: relative;
         display: flex;
-        column-gap: rem(10);
         align-items: center;
         &::before{
             font-size: rem(30);
@@ -385,19 +383,11 @@
         z-index: 5;
         color: #fff;
         border-radius: 15px;
+        padding: rem(10);
         li{
             &:not(:last-child){
                 margin: 0 0 rem(15) 0;
             }
-        }
-        &._content{
-            max-height: 0;
-            padding: 0 rem(10);
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-        }
-        &._active{
-            padding: rem(10);
         }
     }
     // .number__order
@@ -463,6 +453,7 @@
         @media (max-width: $tablet){
             margin: 0;
             font-size: rem(30);
+            color: white;
         }
     }
     // .shop__details
